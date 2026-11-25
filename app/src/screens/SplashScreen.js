@@ -125,12 +125,12 @@ export function SplashScreen({ onFinish }) {
 
 const styles = StyleSheet.create({
 	root: {
-		...StyleSheet.absoluteFillObject,
+		flex: 1,
+		width: "100%",
 		backgroundColor: color.bg,
 		alignItems: "center",
 		justifyContent: "space-between",
 		paddingVertical: 88,
-		zIndex: 10,
 	},
 	center: {
 		flex: 1,

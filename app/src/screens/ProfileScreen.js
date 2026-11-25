@@ -5,7 +5,7 @@ import { tokens } from "../theme/tokens.js";
 const { color, space, radius, shadow } = tokens;
 
 // Isi dengan URL repository GitHub kelompok setelah repo-nya dibuat.
-const REPO_URL = "";
+const REPO_URL = "https://github.com/hafiyyandimas/PraktikumPBB_Mod6_ReactNative";
 
 const MEMBERS = [
 	{

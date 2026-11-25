@@ -43,46 +43,49 @@ export default function App() {
 
   return (
     <SafeAreaProvider>
-      <NavigationContainer theme={theme}>
-        <Tab.Navigator
-          screenOptions={({ route }) => ({
-            headerShown: true,
-            headerTitle: "LiveTemp",
-            headerTitleAlign: "left",
-            headerTintColor: color.text,
-            headerStyle: {
-              backgroundColor: color.surface,
-              borderBottomWidth: 1,
-              borderBottomColor: color.border,
-            },
-            headerTitleStyle: {
-              fontWeight: "600",
-              fontSize: 17,
-              // ponytail: system monospace, no custom font dep
-              fontFamily: "monospace",
-              letterSpacing: -0.5,
-            },
-            tabBarActiveTintColor: color.primary,
-            tabBarInactiveTintColor: color.text2,
-            tabBarLabelStyle: { fontSize: 12, fontWeight: "500" },
-            tabBarStyle: {
-              backgroundColor: color.surface,
-              borderTopWidth: 1,
-              borderTopColor: color.border,
-            },
-            tabBarHideOnKeyboard: true,
-            tabBarIcon: ({ color: iconColor }) => {
-              const iconName = TAB_ICONS[route.name] ?? "ellipse";
-              return <Ionicons name={iconName} size={24} color={iconColor} />;
-            },
-          })}
-        >
-          <Tab.Screen name="Monitoring" component={MonitoringScreen} />
-          <Tab.Screen name="Control" component={ControlScreen} />
-          <Tab.Screen name="Profil" component={ProfileScreen} />
-        </Tab.Navigator>
-      </NavigationContainer>
-      {booting ? <SplashScreen onFinish={() => setBooting(false)} /> : null}
+      {booting ? (
+        <SplashScreen onFinish={() => setBooting(false)} />
+      ) : (
+        <NavigationContainer theme={theme}>
+          <Tab.Navigator
+            screenOptions={({ route }) => ({
+              headerShown: true,
+              headerTitle: "LiveTemp",
+              headerTitleAlign: "left",
+              headerTintColor: color.text,
+              headerStyle: {
+                backgroundColor: color.surface,
+                borderBottomWidth: 1,
+                borderBottomColor: color.border,
+              },
+              headerTitleStyle: {
+                fontWeight: "600",
+                fontSize: 17,
+                // ponytail: system monospace, no custom font dep
+                fontFamily: "monospace",
+                letterSpacing: -0.5,
+              },
+              tabBarActiveTintColor: color.primary,
+              tabBarInactiveTintColor: color.text2,
+              tabBarLabelStyle: { fontSize: 12, fontWeight: "500" },
+              tabBarStyle: {
+                backgroundColor: color.surface,
+                borderTopWidth: 1,
+                borderTopColor: color.border,
+              },
+              tabBarHideOnKeyboard: true,
+              tabBarIcon: ({ color: iconColor }) => {
+                const iconName = TAB_ICONS[route.name] ?? "ellipse";
+                return <Ionicons name={iconName} size={24} color={iconColor} />;
+              },
+            })}
+          >
+            <Tab.Screen name="Monitoring" component={MonitoringScreen} />
+            <Tab.Screen name="Control" component={ControlScreen} />
+            <Tab.Screen name="Profil" component={ProfileScreen} />
+          </Tab.Navigator>
+        </NavigationContainer>
+      )}
     </SafeAreaProvider>
   );
 }
